@@ -82,6 +82,7 @@
             this.caLàmToolStripMenuItem.Name = "caLàmToolStripMenuItem";
             this.caLàmToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.caLàmToolStripMenuItem.Text = "ca làm";
+            this.caLàmToolStripMenuItem.Click += new System.EventHandler(this.caLàmToolStripMenuItem_Click);
             // 
             // chấmCôngVàLươngToolStripMenuItem
             // 

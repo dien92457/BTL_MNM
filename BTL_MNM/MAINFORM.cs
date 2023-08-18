@@ -30,5 +30,13 @@ namespace BTL_MNM
                 frm.ShowDialog();
             
         }
+
+        private void caLàmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            THONGTIN2 frm = new THONGTIN2();
+            frm.ShowDialog();
+
+        }
     }
 }
