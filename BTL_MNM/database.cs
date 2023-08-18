@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,10 +12,9 @@ namespace BTL_MNM
 {
     public class database
     {
+
         public database() { }
-        private String css = @"URI=file:dataa_table.db";
-        SQLiteConnection conn;
-        SQLiteCommand cmdd;
+        private string css = "Data Source=dataprovide.db;Version=3;";
         public void ExecuteNonQuery(string query, object[] parameter = null)
         {
             SQLiteConnection connection = new SQLiteConnection(css);

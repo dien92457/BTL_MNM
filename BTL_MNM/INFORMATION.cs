@@ -30,7 +30,8 @@ namespace BTL_MNM
              }
              con.Close(); */
             database dataprovide = new database();
-            String stm = "SELECT * FROM test";
+            String stm = "SELECT * FROM NhanVien";
+            dataprovide.ExecuteQuery(stm);
             dataGridView1.DataSource = dataprovide.ExecuteQuery(stm);
         }
 
@@ -65,12 +66,12 @@ namespace BTL_MNM
                 con.Close();
             }*/
             String ten = txt_ten.Text;
-            String id = txt_id.Text;
+            int id = Convert.ToInt32(txt_id.Text);
+            int phanquyen = Convert.ToInt32(text_phan_quyen.Text);
             database dataprovde = new database();
-            string query = "INSERT INTO test(name, id) VALUES( @ten , @id )";
-            dataprovde.ExecuteNonQuery(query, new object[] {ten, id});
-
-
+            string query = "INSERT INTO NhanVien (ID, HoTen, PhanQuyen) VALUES ( @id , @ten , @phanquyen );";
+            dataprovde.ExecuteNonQuery(query, new object[] {id, ten, phanquyen});
+            this.data_show();
         }
 
         private void btn_xoa_Click(object sender, EventArgs e)
