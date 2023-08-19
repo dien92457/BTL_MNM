@@ -12,12 +12,22 @@ namespace BTL_MNM
 {
     public class database
     {
+        string debugpath;
+        string projectpath;
+        string stringconnection;
+        public database()
+        {
+            debugpath = Directory.GetCurrentDirectory(); // Đường dẫn đến file debug
+            projectpath = Directory.GetParent(Directory.GetParent(debugpath).FullName).FullName;
+            stringconnection = $"Data Source={Path.Combine(projectpath, "dataprovide.db")};Version=3;";
 
-        public database() { }
-        private string css = "Data Source=dataprovide.db;Version=3;";
+        }
+
+
+        // private string css = string.Format(@"Data Source={0}\dataprovide.db;Version=3;", Application.StartupPath);
         public void ExecuteNonQuery(string query, object[] parameter = null)
         {
-            SQLiteConnection connection = new SQLiteConnection(css);
+            SQLiteConnection connection = new SQLiteConnection(stringconnection);
             try
             {
                 connection.Open();
@@ -50,7 +60,7 @@ namespace BTL_MNM
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {
             DataTable table = new DataTable();
-            SQLiteConnection connection = new SQLiteConnection(css);
+            SQLiteConnection connection = new SQLiteConnection(stringconnection);
             try
             {
                 connection.Open();
@@ -85,7 +95,7 @@ namespace BTL_MNM
         public object ExecuteScalar(string query, object[] parameter = null)
         {
             object data = null;
-            SQLiteConnection connection = new SQLiteConnection(css);
+            SQLiteConnection connection = new SQLiteConnection(stringconnection);
             try
             {
                 connection.Open();
@@ -119,7 +129,7 @@ namespace BTL_MNM
         public DataTable ExecuteQuerySearch(string query)
         {
             DataTable table = new DataTable();
-            SQLiteConnection connection = new SQLiteConnection(css);
+            SQLiteConnection connection = new SQLiteConnection(stringconnection);
             try
             {
                 connection.Open();

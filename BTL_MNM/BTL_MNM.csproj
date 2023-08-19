@@ -100,6 +100,7 @@
     <EmbeddedResource Include="THONGTIN2.resx">
       <DependentUpon>THONGTIN2.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="dataprovide.db" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
